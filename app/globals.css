@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7fb;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: #3a6494;
+  --color-brand-hover: #31567f;
+  --color-brand-soft: #e7eef6;
+  --color-brand-ring: #c5d4e6;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.typing-dot {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 999px;
+  background: #a3a3a3;
+  animation: typing-bounce 1s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.story-ring {
+  background: linear-gradient(135deg, #7eabd0 0%, #3a6494 52%, #2c4f75 100%);
+}
+
+.note-bubble {
+  animation: note-in 0.25s ease-out;
+}
+
+@keyframes note-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes typing-bounce {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.msg-flash {
+  animation: msg-flash 2s ease-in-out;
+}
+
+@keyframes msg-flash {
+  0% {
+    background-color: color-mix(in srgb, var(--color-brand) 20%, transparent);
+  }
+  40% {
+    background-color: color-mix(in srgb, var(--color-brand) 14%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
