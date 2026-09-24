@@ -1,7 +1,10 @@
 import { Suspense } from 'react'
+import { auth } from '@clerk/nextjs/server'
 import ChatApp from '@/components/chat/ChatApp'
 
-export default function ChatPage() {
+export default async function ChatPage() {
+  await auth.protect()
+
   return (
     <Suspense
       fallback={
